@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constants/image.dart';
 import 'package:flutter_application_1/constants/string.dart';
 import 'package:flutter_application_1/features/authentication/screens/login/login_screen.dart';
+import 'package:flutter_application_1/features/authentication/screens/register/register_screen.dart';
 import 'package:get/get.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -35,15 +36,15 @@ class WelcomeScreen extends StatelessWidget {
               Expanded(
                   child: OutlinedButton(
                 onPressed: () => Get.to(() => const LoginScreen()),
-                child: Text(login),
+                child: const Text(login),
               )),
               const SizedBox(
                 width: 10.0,
               ),
               Expanded(
                   child: ElevatedButton(
-                onPressed: () {},
-                child: Text(register),
+                onPressed: () => Get.to(() => const RegisterScreen()),
+                child: const Text(register),
               )),
               const SizedBox(
                 width: 20.0,
