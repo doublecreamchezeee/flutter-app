@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/constants/image.dart';
 import 'package:flutter_application_1/constants/sizes.dart';
-import 'package:flutter_application_1/constants/string.dart';
+import 'package:flutter_application_1/features/authentication/screens/login/login_footer.dart';
+import 'package:flutter_application_1/features/authentication/screens/login/login_form.dart';
+import 'package:flutter_application_1/features/authentication/screens/login/login_header.dart';
+// import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget{
   const LoginScreen({Key? key}) : super(key: key);
@@ -12,11 +14,12 @@ class LoginScreen extends StatelessWidget{
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(defaultSize),
-          child: Column(
+          child: const Column(
             children: [
-              Image(image: const AssetImage(welcomeScreenImage)),
-              Text(login, style: Theme.of(context).textTheme.headlineMedium),
-              Text(register, style: Theme.of(context).textTheme.headlineMedium),
+              LoginHeader(),
+              SizedBox(height: 20),
+              LoginForm(),
+              LoginFooter(),
             ],
           ),
         ),
