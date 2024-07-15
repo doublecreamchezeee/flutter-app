@@ -6,7 +6,7 @@ import 'package:flutter_application_1/features/authentication/screens/register/r
 import 'package:get/get.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({Key? key}) : super(key: key);
+  const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

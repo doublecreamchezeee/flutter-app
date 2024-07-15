@@ -5,7 +5,7 @@ import 'package:flutter_application_1/features/authentication/screens/verificati
 import 'package:get/get.dart';
 
 class LoginForgetPWModal extends StatelessWidget{
-  const LoginForgetPWModal({Key? key}) : super(key: key);
+  const LoginForgetPWModal({super.key});
   
   @override
   Widget build(BuildContext context) {

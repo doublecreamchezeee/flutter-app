@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/features/authentication/screens/login/login_forget_pw_modal.dart';
 
 class LoginForm extends StatelessWidget{
-  const LoginForm({Key? key}) : super(key: key);
+  const LoginForm({super.key});
   
   @override
   Widget build(BuildContext context) {

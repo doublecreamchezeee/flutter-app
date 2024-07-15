@@ -4,7 +4,7 @@ import 'package:flutter_application_1/constants/sizes.dart';
 
 
 class OptScreen extends StatelessWidget{
-  const OptScreen(this.email);
+  const OptScreen(this.email, {super.key});
 
   final String email;
   @override
@@ -35,7 +35,7 @@ class OptScreen extends StatelessWidget{
                   context: context,
                   builder: (context){
                     return AlertDialog(
-                      title: Text("Verification Code"),
+                      title: const Text("Verification Code"),
                       content: Text('Code entered is $verificationCode'),
                     );
                   }

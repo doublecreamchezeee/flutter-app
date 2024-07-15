@@ -3,7 +3,7 @@ import 'package:flutter_application_1/features/authentication/screens/verificati
 import 'package:get/get.dart';
 
 class VerifyEmail extends StatefulWidget{
-  const VerifyEmail({Key? key}) : super(key: key);
+  const VerifyEmail({super.key});
 
   @override
   State<VerifyEmail> createState() => _VerifyEmailState();
@@ -13,7 +13,6 @@ class _VerifyEmailState extends State<VerifyEmail> {
   TextEditingController controller = TextEditingController();
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     controller.dispose();
   }
@@ -22,7 +21,7 @@ class _VerifyEmailState extends State<VerifyEmail> {
 
     return Scaffold(  // Added Scaffold here
       appBar: AppBar(
-        title: Text('Verify Email'),
+        title: const Text('Verify Email'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

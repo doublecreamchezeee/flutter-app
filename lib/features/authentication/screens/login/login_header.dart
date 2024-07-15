@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constants/image.dart';
 
 class LoginHeader extends StatelessWidget{
-  const LoginHeader({Key? key}) : super(key: key);
+  const LoginHeader({super.key});
   
   @override
   Widget build(BuildContext context) {

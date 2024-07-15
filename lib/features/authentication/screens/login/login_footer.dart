@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/features/authentication/screens/register/register_screen.dart';
 import 'package:get/get.dart';
 class LoginFooter extends StatelessWidget{
-  const LoginFooter({Key? key}) : super(key: key);
+  const LoginFooter({super.key});
   
   @override
   Widget build(BuildContext context) {
