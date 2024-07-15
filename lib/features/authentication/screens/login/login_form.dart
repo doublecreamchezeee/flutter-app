@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/features/authentication/screens/login/login_forget_pw_modal.dart';
 
 class LoginForm extends StatelessWidget{
   const LoginForm({Key? key}) : super(key: key);
@@ -31,7 +32,7 @@ class LoginForm extends StatelessWidget{
 
         const SizedBox(height: 10),
 
-        TextButton(onPressed: () => {}, child: const Text("Forgot password?")),
+        const LoginForgetPWModal(), 
 
         SizedBox(
           width: double.infinity,

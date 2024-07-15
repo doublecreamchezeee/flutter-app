@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_application_1/features/authentication/screens/register/register_screen.dart';
+import 'package:get/get.dart';
 class LoginFooter extends StatelessWidget{
   const LoginFooter({Key? key}) : super(key: key);
   
@@ -8,7 +9,7 @@ class LoginFooter extends StatelessWidget{
     return Column(
       children: [
         TextButton(
-          onPressed: () => {}, 
+          onPressed: () => Get.to(() => const RegisterScreen()), 
           child: const Text.rich(
             TextSpan(
               text: "Dont have account? ",
