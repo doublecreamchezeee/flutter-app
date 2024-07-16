@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_application_1/exceptions/login_failure.dart';
 import 'package:flutter_application_1/exceptions/register_email_password_failure.dart';
+import 'package:flutter_application_1/features/authentication/screens/login/login_screen.dart';
 import 'package:flutter_application_1/features/authentication/screens/welcome/dashboard_screen.dart';
 import 'package:flutter_application_1/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:get/get.dart';
@@ -39,8 +41,17 @@ class AuthenticationRepository extends GetxController{
   Future<void> signInWithEmailAndPassword(String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-    } on FirebaseAuthException catch(e){} 
-    catch (_){}
+      firebaseUser.value != null ? Get.offAll(() => const DashboardScreen()) : Get.to(() => const LoginScreen());
+    } on FirebaseAuthException catch(e){
+      final ex = LoginFailure.code(e.code);
+      print('FIREBASE AUTH EXCEPTION - ${ex.message}');
+      throw ex;
+    } 
+    catch (_){
+      const ex = LoginFailure();
+      print('EXCEPTION - ${ex.message}');
+      throw ex;
+    }
   }
   Future<void> logout() async => await _auth.signOut();
 }
