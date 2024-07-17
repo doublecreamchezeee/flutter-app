@@ -16,7 +16,7 @@ class RegisterScreen extends StatelessWidget{
           child: const Column(
             children: [
               RegisterHeader(),
-              SizedBox(height: 20),
+              SizedBox(height: 10),
               RegisterForm(),
               RegisterFooter(),
             ],

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/features/authentication/screens/verification/opt_screen.dart';
+import 'package:flutter_application_1/constants/string.dart';
+import 'package:flutter_application_1/features/authentication/screens/verification/otp_screen.dart';
+import 'package:flutter_application_1/ui.dart';
 import 'package:get/get.dart';
 
 class VerifyEmail extends StatefulWidget{
@@ -21,7 +23,8 @@ class _VerifyEmailState extends State<VerifyEmail> {
 
     return Scaffold(  // Added Scaffold here
       appBar: AppBar(
-        title: const Text('Verify Email'),
+        title: const BoxText.headingSmall(tAppBarVerifyEmail),
+        backgroundColor: Colors.white,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -41,12 +44,12 @@ class _VerifyEmailState extends State<VerifyEmail> {
                 ],
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
             SizedBox(
               width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () => Get.to(() => OptScreen(controller.text)) ,
-                child: const Text("Confirm"),
+              child: BoxButton(
+                title: tConfirm,
+                onTap: () => Get.to(() => OptScreen(controller.text)),
               ),
             ),
           ],

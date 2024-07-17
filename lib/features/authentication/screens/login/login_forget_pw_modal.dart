@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constants/sizes.dart';
+import 'package:flutter_application_1/constants/string.dart';
 import 'package:flutter_application_1/features/authentication/screens/verification/verify_email.dart';
 import 'package:flutter_application_1/features/authentication/screens/verification/verify_phone.dart';
+import 'package:flutter_application_1/ui.dart';
 import 'package:get/get.dart';
 
 class LoginForgetPWModal extends StatelessWidget{
@@ -18,8 +20,10 @@ class LoginForgetPWModal extends StatelessWidget{
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Make Selection", style: Theme.of(context).textTheme.headlineMedium),
-                  Text("Select one of the options given below to reset password", style: Theme.of(context).textTheme.bodyMedium),
+                  // Text("Make Selection", style: Theme.of(context).textTheme.headlineMedium),
+                  // Text("Select one of the options given below to reset password", style: Theme.of(context).textTheme.bodyMedium),
+                  const BoxText.headingMedium(tMakeSelection),
+                  const BoxText.caption(tMakeSelectionCaption),
                   const SizedBox(height: 20),
                   GestureDetector(
                     onTap: () => Get.to(() => const VerifyEmail()),
@@ -29,14 +33,15 @@ class LoginForgetPWModal extends StatelessWidget{
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.grey.shade200
                       ),
-                      child: Row(
+                      child: const Row(
                         children: [
-                          const Icon(Icons.mail_outline_rounded, size: 60),
+                          Icon(Icons.mail_outline_rounded, size: 50),
+                          SizedBox(width: 15),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Email", style: Theme.of(context).textTheme.headlineSmall),
-                              Text("Reset via email verification", style: Theme.of(context).textTheme.bodySmall),
+                              BoxText.headingSmall(tEmail),
+                              BoxText.caption(tResetByEmail),
                             ],
                           )
                         ],
@@ -53,14 +58,15 @@ class LoginForgetPWModal extends StatelessWidget{
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.grey.shade200
                       ),
-                      child: Row(
+                      child: const Row(
                         children: [
-                          const Icon(Icons.mail_outline_rounded, size: 60),
+                          Icon(Icons.phone_outlined, size: 50),
+                          SizedBox(width: 15),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Phone number", style: Theme.of(context).textTheme.headlineSmall),
-                              Text("Reset via SMS verification", style: Theme.of(context).textTheme.bodySmall),
+                              BoxText.headingSmall(tPhone),
+                              BoxText.caption(tResetByPhone),
                             ],
                           )
                         ],
@@ -72,7 +78,7 @@ class LoginForgetPWModal extends StatelessWidget{
               ),
           ));
         }, 
-        child: const Text("Forgot password?"));
+        child: const BoxText.caption(tForgotPass));
 
   } 
 }

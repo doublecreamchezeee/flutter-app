@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/constants/string.dart';
 import 'package:flutter_application_1/features/authentication/controllers/login_controller.dart';
 import 'package:flutter_application_1/features/authentication/screens/login/login_forget_pw_modal.dart';
+import 'package:flutter_application_1/ui.dart';
 import 'package:get/get.dart';
 
 class LoginForm extends StatelessWidget {
@@ -34,27 +36,26 @@ class LoginForm extends StatelessWidget {
         const LoginForgetPWModal(),
         SizedBox(
           width: double.infinity,
-          child: ElevatedButton(
-              onPressed: () {
-                if (formKey.currentState!.validate()) {
-                  LoginController.instance.loginUser(
-                      controller.email.text.trim(),
-                      controller.password.text.trim());
-                }
-              },
-              child: const Text("Sign in")),
-        ),
-        const SizedBox(
-          height: 30,
-          child: Align(
-            alignment: Alignment.center,
-            child: Text("OR"),
+          child: BoxButton(
+            title: tSigninBtn,
+            onTap: () {
+              if (formKey.currentState!.validate()) {
+                LoginController.instance.loginUser(controller.email.text.trim(),
+                    controller.password.text.trim());
+              }
+            },
           ),
         ),
-        SizedBox(
+        const SizedBox(
+          height: 50,
+          child: Align(
+            alignment: Alignment.center,
+            child: BoxText.caption("OR"),
+          ),
+        ),
+        const SizedBox(
           width: double.infinity,
-          child: ElevatedButton(
-              onPressed: () {}, child: const Text("Sign in with Google")),
+          child: BoxButton.outline(title: tSigninWGgBtn)
         ),
       ],
     );

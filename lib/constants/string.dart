@@ -1,9 +1,34 @@
 // generic text
-const login = "Login";
-const register = "Register";
-
+const tLogin = "Login";
+const tRegister = "Register";
+const tConfirm = "Confirm";
 
 // welcome screen text
-const welcomeTittle = "Hello";
-const welcomeSubTitle = "Welcome to my app";
+const tWelcomeTittle = "Hello";
+const tWelcomeSubTitle = "Welcome to my app";
+
+// login screen text
+const tSigninBtn = "Sign In";
+const tSigninWGgBtn = "Sign In with Google";
+const tForgotPass = "Forgot Password? ";
+const tSignUpNavigate = "Don't have account? Sign Up";
+const tPhone = "Phone";
+const tEmail = "Email";
+const tResetByPhone = "Reset via SMS verification";
+const tResetByEmail = "Reset via Email verification";
+const tMakeSelection = "Make Selection";
+const tMakeSelectionCaption = "Select one of the options given below to reset password";
+
+// sign up screen text 
+const tSignupBtn = "Sign Up";
+const tSignupWGgBtn = "Sign Up with Google";
+const tAlreadyHaveAcc = "Already have an account? Sign In";
+
+// verify screen text
+const tAppBarVerifyEmail = "Verify Email";
+const tAppBarVerifyPhone = "Verify Phone";
+const tAppBarVerifyOtp = "OTP";
+const tVerification = "Verification";
+const tVerificationCaption = "Enter the verification code sent on your personal information ";
+
 

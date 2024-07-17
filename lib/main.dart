@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/features/authentication/screens/login/login_screen.dart';
 import 'package:flutter_application_1/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:flutter_application_1/firebase_options.dart';
 import 'package:flutter_application_1/repository/auth_repository.dart';
@@ -21,9 +22,11 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter App',
       theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.system,
+      // darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.light,
       home: const WelcomeScreen(),
+      // home: const LoginScreen(),
+
     );
   }
 }
