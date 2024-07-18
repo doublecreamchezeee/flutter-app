@@ -4,14 +4,14 @@ import 'package:flutter_application_1/ui.dart';
 import 'package:get/get.dart';
 import 'package:flutter_application_1/features/authentication/screens/verification/otp_screen.dart';
 
-class VerifyPhone extends StatefulWidget{
+class VerifyPhone extends StatefulWidget {
   const VerifyPhone({super.key});
 
   @override
   State<VerifyPhone> createState() => _VerfyPhoneState();
 }
 
-class _VerfyPhoneState extends State<VerifyPhone>{
+class _VerfyPhoneState extends State<VerifyPhone> {
   TextEditingController controller = TextEditingController();
   @override
   void dispose() {
@@ -21,7 +21,8 @@ class _VerfyPhoneState extends State<VerifyPhone>{
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(  // Added Scaffold here
+    return Scaffold(
+      // Added Scaffold here
       appBar: AppBar(
         title: const BoxText.headingSmall(tAppBarVerifyPhone),
         backgroundColor: Colors.white,
@@ -30,16 +31,13 @@ class _VerfyPhoneState extends State<VerifyPhone>{
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            Form(
+            Form(   
               child: Column(
                 children: [
-                  TextFormField(
+                  BoxInputField(
                     controller: controller,
-                    decoration: const InputDecoration(
-                      labelText: 'Phone',
-                      hintText: 'Phone',
-                      border: OutlineInputBorder(),
-                    ),
+                    leading: const Icon(Icons.phone),
+                    placeholder: "Enter phone number",
                   ),
                 ],
               ),

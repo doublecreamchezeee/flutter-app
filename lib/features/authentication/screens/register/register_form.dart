@@ -15,38 +15,31 @@ class RegisterForm extends StatelessWidget {
       child: Form(
           key: formKey,
           child: Column(children: [
-            TextFormField(
+            BoxInputField(
               controller: controller.fullName,
-              decoration: const InputDecoration(
-                  labelText: 'Full Name',
-                  hintText: 'Full Name',
-                  border: OutlineInputBorder()),
+              leading: const Icon(Icons.text_fields),
+              placeholder: "Enter full name",
             ),
-            const SizedBox(height: 15),
-            TextFormField(
+            const SizedBox(height: 12),
+            BoxInputField(
               controller: controller.email,
-              decoration: const InputDecoration(
-                  labelText: 'Email',
-                  hintText: 'Email',
-                  border: OutlineInputBorder()),
+              leading: const Icon(Icons.email),
+              placeholder: "Enter email",
             ),
-            const SizedBox(height: 15),
-            TextFormField(
+            const SizedBox(height: 12),
+            BoxInputField(
               controller: controller.phone,
-              decoration: const InputDecoration(
-                  labelText: 'Phone No',
-                  hintText: 'Phone No',
-                  border: OutlineInputBorder()),
+              leading: const Icon(Icons.phone),
+              placeholder: "Enter phone number",
             ),
-            const SizedBox(height: 15),
-            TextFormField(
+            const SizedBox(height: 12),
+            BoxInputField(
               controller: controller.password,
-              decoration: const InputDecoration(
-                  labelText: 'Password',
-                  hintText: 'Password',
-                  border: OutlineInputBorder()),
+              leading: const Icon(Icons.password),
+              password: true,
+              placeholder: "Enter password",
             ),
-            const SizedBox(height: 15),
+            const SizedBox(height: 20),
             SizedBox(
                 width: double.infinity,
                 child: BoxButton(
@@ -60,7 +53,7 @@ class RegisterForm extends StatelessWidget {
                   },
                 )),
             const SizedBox(
-              height: 30,
+              height: 40,
               child: Align(
                 alignment: Alignment.center,
                 child: BoxText.caption("OR"),

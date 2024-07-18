@@ -33,13 +33,10 @@ class _VerifyEmailState extends State<VerifyEmail> {
             Form(
               child: Column(
                 children: [
-                  TextFormField(
+                  BoxInputField(
                     controller: controller,
-                    decoration: const InputDecoration(
-                      labelText: 'Email',
-                      hintText: 'Email',
-                      border: OutlineInputBorder(),
-                    ),
+                    leading: const Icon(Icons.email),
+                    placeholder: 'Enter Email',
                   ),
                 ],
               ),

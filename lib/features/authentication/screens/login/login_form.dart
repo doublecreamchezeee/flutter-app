@@ -16,21 +16,19 @@ class LoginForm extends StatelessWidget {
         Form(
             key: formKey,
             child: Column(children: [
-              TextFormField(
+              BoxInputField(
                 controller: controller.email,
-                decoration: const InputDecoration(
-                    labelText: 'Username',
-                    hintText: 'Email / Phone / Username',
-                    border: OutlineInputBorder()),
+                leading: const Icon(Icons.person),
+                placeholder: "Enter username",
               ),
               const SizedBox(height: 20),
-              TextFormField(
+              BoxInputField(
                 controller: controller.password,
-                decoration: const InputDecoration(
-                    labelText: 'Password',
-                    hintText: 'Password',
-                    border: OutlineInputBorder()),
+                leading: const Icon(Icons.password),
+                password: true,
+                placeholder: "Enter password",
               ),
+              const SizedBox(height: 10),
             ])),
         const SizedBox(height: 10),
         const LoginForgetPWModal(),
@@ -54,9 +52,8 @@ class LoginForm extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          width: double.infinity,
-          child: BoxButton.outline(title: tSigninWGgBtn)
-        ),
+            width: double.infinity,
+            child: BoxButton.outline(title: tSigninWGgBtn)),
       ],
     );
   }
