@@ -10,15 +10,8 @@ class AppTheme {
   );
   
     // Linear gradient cho nền tối
-  static const Gradient darkBackgroundGradient = LinearGradient(
-    colors: [Color(0xFF303F9F), Color(0xFF1A237E)], // Tông màu tối
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-  );
 
   static const Color lightTextColor = Color.fromARGB(255, 116, 179, 74);
-  static const Color darkBackgroundColor = Colors.black;
-  static const Color darkTextColor = Colors.purpleAccent;
   
   // this one effect to text color 
   static const Color seedColor = Color.fromARGB(255, 36, 141, 62);
@@ -79,61 +72,6 @@ class AppTheme {
       textTheme: ButtonTextTheme.primary,
     ),
   );
-
-  static ThemeData darkTheme = ThemeData(
-    colorScheme: ColorScheme.fromSeed(seedColor: seedColor).copyWith(
-      brightness: Brightness.dark,
-    ),
-    useMaterial3: true,
-    scaffoldBackgroundColor: darkBackgroundColor,
-    textTheme: const TextTheme(
-      headlineLarge: TextStyle(
-        fontSize: 32.0,
-        fontWeight: FontWeight.bold,
-        fontStyle: FontStyle.italic,
-        color: darkTextColor,
-      ),
-      headlineMedium: TextStyle(
-        fontSize: 26.0,
-        fontWeight: FontWeight.bold,
-        fontStyle: FontStyle.italic,
-        color: darkTextColor,
-      ),
-      headlineSmall: TextStyle(
-        fontSize: 20.0,
-        fontWeight: FontWeight.bold,
-        fontStyle: FontStyle.italic,
-        color: darkTextColor,
-      ),
-      titleLarge: TextStyle(
-        fontSize: 14.0,
-        fontWeight: FontWeight.bold,
-        fontStyle: FontStyle.italic,
-        color: darkTextColor,
-      ),
-      bodyLarge: TextStyle(
-        fontSize: 12.0,
-        color: darkTextColor,
-      ),
-      bodyMedium: TextStyle(
-        fontSize: 10.0,
-        color: darkTextColor,
-      ),
-    ),
-    appBarTheme: const AppBarTheme(
-      backgroundColor: darkBackgroundColor,
-      foregroundColor: darkTextColor,
-      titleTextStyle: TextStyle(
-        fontSize: 20.0,
-        fontWeight: FontWeight.bold,
-        color: darkTextColor,
-      ),
-    ),
-    buttonTheme: const ButtonThemeData(
-      buttonColor: darkTextColor,
-      textTheme: ButtonTextTheme.primary,
-    ),
-  );
 }
 
 class AppText{
@@ -174,12 +112,13 @@ class AppText{
 class AppColor{
   // primary color
   static const Color primaryColorLight = Color.fromARGB(255, 145, 226, 97);
-  static const Color primaryColorDark = Color.fromARGB(255, 190, 162, 82);
+  static const Color primaryColorDark = Color.fromARGB(255, 110, 110, 110);
   
   // text color
   static const Color textColorLight = Color.fromARGB(255, 255, 255, 255);
   static const Color textOutlineColorLight = Color.fromARGB(255, 50, 158, 83);
-
+  static const Color textDefaultColor = Color.fromARGB(255, 88, 88, 88);
+  static const Color textCardHomeBarColor = Color.fromARGB(255, 207, 207, 207);
 
   // button color
   static const Color buttonOutlineLight = Color.fromARGB(255, 201, 228, 198);

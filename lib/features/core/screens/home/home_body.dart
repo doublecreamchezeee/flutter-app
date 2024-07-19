@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/features/core/animation/fadeanimation.dart';
 import 'package:flutter_application_1/ui.dart';
+import 'package:flutter_application_1/utils/theme/theme.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -33,8 +34,8 @@ class _HomeBodyState extends State<HomeBody> {
         SizedBox(height: 10),
         middleCategoriesWidget(width, height),
         SizedBox(height: 5),
-        // moreTextWidget(),
-        // lastCategoriesWidget(width, height),
+        moreTextWidget(),
+        lastCategoriesWidget(width, height),
       ],
     );
   }
@@ -108,11 +109,12 @@ class _HomeBodyState extends State<HomeBody> {
                       child: Text(
                         featured[index],
                         style: TextStyle(
+                            fontFamily: GoogleFonts.montserrat().fontFamily,
                             fontSize:
-                                selectedIndexOfFeatured == index ? 19 : 17,
+                                selectedIndexOfFeatured == index ? 17 : 14,
                             color: selectedIndexOfFeatured == index
                                 ? Color.fromARGB(255, 0, 0, 0)
-                                : Color.fromARGB(255, 0, 0, 0),
+                                : Color.fromARGB(202, 167, 167, 167),
                             fontWeight: selectedIndexOfFeatured == index
                                 ? FontWeight.bold
                                 : FontWeight.w400),
@@ -161,7 +163,7 @@ class _HomeBodyState extends State<HomeBody> {
                           delay: 1,
                           child: Row(
                             children: [
-                              BoxText.headingSmall(model.name),
+                              BoxText.headingSmall(model.name, color: AppColor.textCardHomeBarColor),
                               SizedBox(
                                 width: 100,
                               ),
@@ -181,7 +183,7 @@ class _HomeBodyState extends State<HomeBody> {
                         left: 10,
                         child: FadeAnimation(
                           delay: 1.5,
-                          child: BoxText.subheading(model.model)
+                          child: BoxText.subheading(model.model, color: AppColor.textCardHomeBarColor)
                         ),
                       ),
                       Positioned(
@@ -189,7 +191,7 @@ class _HomeBodyState extends State<HomeBody> {
                         left: 10,
                         child: FadeAnimation(
                           delay: 2,
-                          child: BoxText.body("\$${model.price.toStringAsFixed(2)}"),
+                          child: BoxText.body("\$${model.price.toStringAsFixed(2)}", color: AppColor.textCardHomeBarColor),
                         ),
                       ),
                       Positioned(
@@ -218,7 +220,7 @@ class _HomeBodyState extends State<HomeBody> {
                         child: IconButton(
                           onPressed: () {},
                           icon: FaIcon(
-                            FontAwesomeIcons.arrowCircleRight,
+                            FontAwesomeIcons.circleArrowRight,
                             color: Colors.white,
                             size: 25,
                           ),
@@ -235,144 +237,139 @@ class _HomeBodyState extends State<HomeBody> {
     );
   }
 
-// // More Text Widget Components
-//   moreTextWidget() {
-//     return Container(
-//       margin: EdgeInsets.symmetric(horizontal: 20),
-//       child: Row(
-//         children: [
-//           Text("More", style: AppThemes.homeMoreText),
-//           Expanded(child: Container()),
-//           IconButton(
-//               onPressed: () {},
-//               icon: FaIcon(
-//                 CupertinoIcons.arrow_right,
-//                 size: 27,
-//               ))
-//         ],
-//       ),
-//     );
-//   }
+// More Text Widget Components
+  moreTextWidget() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 20),
+      child: Row(
+        children: [
+          BoxText.headingMedium("More"),
+          Expanded(child: Container()),
+          IconButton(
+              onPressed: () {},
+              icon: FaIcon(
+                CupertinoIcons.arrow_right,
+                size: 27,
+              ))
+        ],
+      ),
+    );
+  }
 
-// // Last Categories Widget Components
-//   lastCategoriesWidget(width, height) {
-//     return Container(
-//       width: width,
-//       height: height / 4,
-//       child: ListView.builder(
-//           physics: BouncingScrollPhysics(),
-//           itemCount: availableShoes.length,
-//           scrollDirection: Axis.horizontal,
-//           itemBuilder: (ctx, index) {
-//             ShoeModel model = availableShoes[index];
-//             return GestureDetector(
-//               onTap: () {
-//                 Navigator.push(
-//                   context,
-//                   MaterialPageRoute(
-//                     builder: (ctx) => DetailScreen(
-//                       model: model,
-//                       isComeFromMoreSection: true,
-//                     ),
-//                   ),
-//                 );
-//               },
-//               child: Container(
-//                 margin: EdgeInsets.all(10),
-//                 width: width / 2.24,
-//                 height: height / 4.3,
-//                 decoration: BoxDecoration(
-//                   borderRadius: BorderRadius.circular(10),
-//                   color: Colors.white,
-//                 ),
-//                 child: Stack(
-//                   children: [
-//                     Positioned(
-//                       left: 5,
-//                       child: FadeAnimation(
-//                         delay: 1,
-//                         child: Container(
-//                           width: width / 13,
-//                           height: height / 10,
-//                           color: Colors.red,
-//                           child: RotatedBox(
-//                               quarterTurns: -1,
-//                               child: Center(
-//                                   child: FadeAnimation(
-//                                 delay: 1.5,
-//                                 child: Text("NEW",
-//                                     style: AppThemes.homeGridNewText),
-//                               ))),
-//                         ),
-//                       ),
-//                     ),
-//                     Positioned(
-//                       left: 140,
-//                       child: IconButton(
-//                         onPressed: () {},
-//                         icon: Icon(
-//                           Icons.favorite_border,
-//                           color: AppConstantsColor.darkTextColor,
-//                         ),
-//                       ),
-//                     ),
-//                     Positioned(
-//                       top: 26,
-//                       left: 25,
-//                       child: FadeAnimation(
-//                         delay: 1.5,
-//                         child: RotationTransition(
-//                           turns: AlwaysStoppedAnimation(-15 / 360),
-//                           child: Container(
-//                             width: width / 3,
-//                             height: height / 9,
-//                             child: Hero(
-//                               tag: model.model,
-//                               child: Image(
-//                                 image: AssetImage(model.imgAddress),
-//                               ),
-//                             ),
-//                           ),
-//                         ),
-//                       ),
-//                     ),
-//                     Positioned(
-//                       top: 124,
-//                       left: 45,
-//                       child: FadeAnimation(
-//                         delay: 2,
-//                         child: Container(
-//                           width: width / 4,
-//                           height: height / 42,
-//                           child: FittedBox(
-//                             child: Text("${model.name} ${model.model}",
-//                                 style: AppThemes.homeGridNameAndModel),
-//                           ),
-//                         ),
-//                       ),
-//                     ),
-//                     Positioned(
-//                       top: 145,
-//                       left: 45,
-//                       child: FadeAnimation(
-//                         delay: 2.2,
-//                         child: Container(
-//                           width: width / 4,
-//                           height: height / 42,
-//                           child: FittedBox(
-//                             child: Text(
-//                               "\$${model.price.toStringAsFixed(2)}",
-//                               style: AppThemes.homeGridPrice
-//                             ),
-//                           ),
-//                         ),
-//                       ),
-//                     )
-//                   ],
-//                 ),
-//               ),
-//             );
-//           }),
-//     );
-//   }
+// Last Categories Widget Components
+  lastCategoriesWidget(width, height) {
+    return Container(
+      width: width,
+      height: height / 4,
+      child: ListView.builder(
+          physics: BouncingScrollPhysics(),
+          itemCount: availableShoes.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (ctx, index) {
+            ShoeModel model = availableShoes[index];
+            return GestureDetector(
+              onTap: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (ctx) => DetailScreen(
+                //       model: model,
+                //       isComeFromMoreSection: true,
+                //     ),
+                //   ),
+                // );
+              },
+              child: Container(
+                margin: EdgeInsets.all(10),
+                width: width / 2.24,
+                height: height / 4.3,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                ),
+                child: Stack(
+                  children: [
+                    Positioned(
+                      left: 5,
+                      child: FadeAnimation(
+                        delay: 1,
+                        child: Container(
+                          width: width / 13,
+                          height: height / 10,
+                          color: Colors.red,
+                          child: RotatedBox(
+                              quarterTurns: -1,
+                              child: Center(
+                                  child: FadeAnimation(
+                                delay: 1.5,
+                                child: BoxText.headingMedium("NEW"),
+                              ))),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 140,
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.favorite_border,
+                          color: AppColor.primaryColorDark,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 26,
+                      left: 25,
+                      child: FadeAnimation(
+                        delay: 1.5,
+                        child: RotationTransition(
+                          turns: AlwaysStoppedAnimation(-15 / 360),
+                          child: Container(
+                            width: width / 3,
+                            height: height / 9,
+                            child: Hero(
+                              tag: model.model,
+                              child: Image(
+                                image: AssetImage(model.imgAddress),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 124,
+                      left: 45,
+                      child: FadeAnimation(
+                        delay: 2,
+                        child: Container(
+                          width: width / 4,
+                          height: height / 42,
+                          child: FittedBox(
+                            child: BoxText.headingSmall("${model.name} ${model.model}")
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 145,
+                      left: 45,
+                      child: FadeAnimation(
+                        delay: 2.2,
+                        child: Container(
+                          width: width / 4,
+                          height: height / 42,
+                          child: FittedBox(
+                            child: BoxText.body("\$${model.price.toStringAsFixed(2)}")
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            );
+          }),
+    );
+  }
 }
