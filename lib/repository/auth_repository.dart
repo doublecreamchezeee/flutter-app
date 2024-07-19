@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_application_1/exceptions/login_failure.dart';
 import 'package:flutter_application_1/exceptions/register_email_password_failure.dart';
 import 'package:flutter_application_1/features/authentication/screens/login/login_screen.dart';
-import 'package:flutter_application_1/features/authentication/screens/welcome/dashboard_screen.dart';
+import 'package:flutter_application_1/features/core/screens/home/home_screen.dart';
 import 'package:flutter_application_1/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:get/get.dart';
 
