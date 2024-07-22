@@ -18,6 +18,7 @@ class HomeBody extends StatefulWidget {
   const HomeBody({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _HomeBodyState createState() => _HomeBodyState();
 }
 
@@ -47,7 +48,7 @@ class _HomeBodyState extends State<HomeBody> {
         Container(
           padding: EdgeInsets.all(10),
           width: width,
-          height: height / 17,
+          height: height / 18,
           child: ListView.builder(
               physics: BouncingScrollPhysics(),
               itemCount: categories.length,
@@ -90,7 +91,7 @@ class _HomeBodyState extends State<HomeBody> {
         Container(
           margin: EdgeInsets.symmetric(horizontal: 20),
           width: width / 16,
-          height: height / 2.7,
+          height: height / 3,
           child: RotatedBox(
             quarterTurns: -1,
             child: ListView.builder(
@@ -111,7 +112,7 @@ class _HomeBodyState extends State<HomeBody> {
                         style: TextStyle(
                             fontFamily: GoogleFonts.montserrat().fontFamily,
                             fontSize:
-                                selectedIndexOfFeatured == index ? 17 : 14,
+                                selectedIndexOfFeatured == index ? 16 : 13,
                             color: selectedIndexOfFeatured == index
                                 ? Color.fromARGB(255, 0, 0, 0)
                                 : Color.fromARGB(202, 167, 167, 167),
@@ -126,7 +127,7 @@ class _HomeBodyState extends State<HomeBody> {
         ),
         Container(
           width: width / 1.2,
-          height: height / 2.4,
+          height: height / 2.5,
           child: ListView.builder(
             physics: BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
@@ -146,7 +147,7 @@ class _HomeBodyState extends State<HomeBody> {
                   // );
                 },
                 child: Container(
-                  margin: EdgeInsets.all(15),
+                  margin: EdgeInsets.all(10),
                   width: width / 1.5,
                   child: Stack(
                     children: [

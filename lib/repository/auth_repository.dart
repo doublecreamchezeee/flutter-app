@@ -1,9 +1,11 @@
+// ignore_for_file: avoid_print
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_application_1/exceptions/login_failure.dart';
 import 'package:flutter_application_1/exceptions/register_email_password_failure.dart';
 import 'package:flutter_application_1/features/authentication/screens/login/login_screen.dart';
-import 'package:flutter_application_1/features/core/screens/home/home_screen.dart';
 import 'package:flutter_application_1/features/authentication/screens/welcome/welcome_screen.dart';
+import 'package:flutter_application_1/features/core/screens/navigator.dart';
 import 'package:get/get.dart';
 
 class AuthenticationRepository extends GetxController{
@@ -20,13 +22,13 @@ class AuthenticationRepository extends GetxController{
   }
 
   _setInitialScreen(User? user){
-    user == null ? Get.offAll(() => const WelcomeScreen()) : Get.offAll(() => const DashboardScreen());
+    user == null ? Get.offAll(() => const WelcomeScreen()) : Get.offAll(() => const MainNavigator());
   }
 
   Future<void> createUserWithEmailAndPassword(String email, String password) async {
     try {
       await _auth.createUserWithEmailAndPassword(email: email, password: password);
-      firebaseUser.value != null ? Get.offAll(() => const DashboardScreen()) : Get.to(() => const WelcomeScreen());
+      firebaseUser.value != null ? Get.offAll(() => const MainNavigator()) : Get.to(() => const WelcomeScreen());
     } on FirebaseAuthException catch(e){
       final ex = RegisterEmailPasswordFailure.code(e.code);
       print('FIREBASE AUTH EXCEPTION - ${ex.message}');
@@ -41,7 +43,7 @@ class AuthenticationRepository extends GetxController{
   Future<void> signInWithEmailAndPassword(String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-      firebaseUser.value != null ? Get.offAll(() => const DashboardScreen()) : Get.to(() => const LoginScreen());
+      firebaseUser.value != null ? Get.offAll(() => const MainNavigator()) : Get.to(() => const LoginScreen());
     } on FirebaseAuthException catch(e){
       final ex = LoginFailure.code(e.code);
       print('FIREBASE AUTH EXCEPTION - ${ex.message}');

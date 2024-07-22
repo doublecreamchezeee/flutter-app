@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
       // darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.light,
       home: const WelcomeScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

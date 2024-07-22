@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 PreferredSize? customAppBar() {
   return PreferredSize(
-    preferredSize: const Size.fromHeight(80),
+    preferredSize: const Size.fromHeight(70),
     child: AppBar(
       elevation: 0,
       backgroundColor: const Color.fromARGB(213, 255, 255, 255),

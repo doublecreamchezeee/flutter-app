@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/features/core/models/shoe_model.dart';
 
+// ignore: must_be_immutable
 class DetailScreen extends StatelessWidget {
   ShoeModel model;
   bool isComeFromMoreSection;
