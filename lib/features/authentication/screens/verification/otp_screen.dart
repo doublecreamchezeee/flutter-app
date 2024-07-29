@@ -18,7 +18,7 @@ class OptScreen extends StatelessWidget{
         backgroundColor: Colors.white,
       ),
       body: Container(
-        padding: const EdgeInsets.all(defaultSize),
+        padding: const EdgeInsets.all(tDefaultSize),
         child: Column(
           children: [
             const Image(image: AssetImage(tOtpHeaderImage)),

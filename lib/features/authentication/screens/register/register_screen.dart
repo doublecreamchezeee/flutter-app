@@ -12,7 +12,7 @@ class RegisterScreen extends StatelessWidget{
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(defaultSize),
+          padding: const EdgeInsets.all(tDefaultSize),
           child: const Column(
             children: [
               RegisterHeader(),

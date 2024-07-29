@@ -1,16 +1,17 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
-
+// import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/features/core/animation/fadeanimation.dart';
+import 'package:flutter_application_1/features/core/api/api.dart';
 import 'package:flutter_application_1/ui.dart';
 import 'package:flutter_application_1/utils/theme/theme.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 // import '../../animation/fadeanimation.dart';
 // import '../../../../utils/constants.dart';
 import '../../models/shoe_model.dart';
+import '../../models/categories_model.dart';
 // import '../../../../view/detail/detail_screen.dart';
 import '../../data/dummy_data.dart';
 
@@ -25,6 +26,28 @@ class HomeBody extends StatefulWidget {
 class _HomeBodyState extends State<HomeBody> {
   int selectedIndexOfCategory = 0;
   int selectedIndexOfFeatured = 1;
+  List<ShoeModel> shoeList = [];
+  List<CategoriesModel> categoriesList = [];
+  @override
+  void initState() {
+    super.initState();
+    fetchShoeList();
+    fetchCategoriesList();
+  }
+  Future<void> fetchCategoriesList() async {
+    final response = await ApiService.getCategories();
+    setState(() {
+      categoriesList = response!;
+    });
+  }
+  Future<void> fetchShoeList() async {
+    final response = await ApiService.getProducts();
+    setState(() {
+      shoeList = response!;
+      // print(shoeList);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -51,19 +74,22 @@ class _HomeBodyState extends State<HomeBody> {
           height: height / 18,
           child: ListView.builder(
               physics: BouncingScrollPhysics(),
-              itemCount: categories.length,
+              itemCount: categoriesList.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (ctx, index) {
                 return GestureDetector(
-                  onTap: () {
+                  onTap: () async {
+                    // print(categoriesList[index].name);
+                    final response = await ApiService.getProductsWithCategory(categoriesList[index].name);
                     setState(() {
                       selectedIndexOfCategory = index;
+                      shoeList = response!;
                     });
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Text(
-                      categories[index],
+                      categoriesList[index].name,
                       style: TextStyle(
                           fontSize: selectedIndexOfCategory == index ? 20 : 16,
                           color: selectedIndexOfCategory == index
@@ -131,9 +157,9 @@ class _HomeBodyState extends State<HomeBody> {
           child: ListView.builder(
             physics: BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
-            itemCount: availableShoes.length,
+            itemCount: shoeList.length,
             itemBuilder: (ctx, index) {
-              ShoeModel model = availableShoes[index];
+              ShoeModel model = shoeList[index];
               return GestureDetector(
                 onTap: () {
                   // Navigator.push(
@@ -154,7 +180,7 @@ class _HomeBodyState extends State<HomeBody> {
                       Container(
                         width: width / 1.81,
                         decoration: BoxDecoration(
-                          color: model.modelColor,
+                          color: shoeList[index].modelColor,
                           borderRadius: BorderRadius.circular(30),
                         ),
                       ),
@@ -164,7 +190,7 @@ class _HomeBodyState extends State<HomeBody> {
                           delay: 1,
                           child: Row(
                             children: [
-                              BoxText.headingSmall(model.name, color: AppColor.textCardHomeBarColor),
+                              BoxText.headingSmall(model.model, color: AppColor.textCardHomeBarColor),
                               SizedBox(
                                 width: 100,
                               ),
@@ -264,10 +290,10 @@ class _HomeBodyState extends State<HomeBody> {
       height: height / 4,
       child: ListView.builder(
           physics: BouncingScrollPhysics(),
-          itemCount: availableShoes.length,
+          itemCount: shoeList.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (ctx, index) {
-            ShoeModel model = availableShoes[index];
+            ShoeModel model = shoeList[index];
             return GestureDetector(
               onTap: () {
                 // Navigator.push(
@@ -347,7 +373,7 @@ class _HomeBodyState extends State<HomeBody> {
                           width: width / 4,
                           height: height / 42,
                           child: FittedBox(
-                            child: BoxText.headingSmall("${model.name} ${model.model}")
+                            child: BoxText.headingSmall("${model.brand} ${model.model}")
                           ),
                         ),
                       ),

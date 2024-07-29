@@ -16,7 +16,7 @@ class LoginForgetPWModal extends StatelessWidget{
             context: context, 
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             builder: (context) => Container(
-              padding: const EdgeInsets.all(defaultSize),
+              padding: const EdgeInsets.all(tDefaultSize),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

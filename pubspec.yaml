@@ -24,6 +24,7 @@ dependencies:
   custom_navigation_bar: ^0.8.2
   simple_animations: ^5.0.2
   supercharged: ^2.1.1
+  http: ^1.2.2
 
   
 dependency_overrides:

@@ -2,7 +2,7 @@
 const tLogin = "Login";
 const tRegister = "Register";
 const tConfirm = "Confirm";
-
+const tPassword = "Password";
 // welcome screen text
 const tWelcomeTittle = "Hello";
 const tWelcomeSubTitle = "Welcome to my app";
@@ -32,3 +32,12 @@ const tVerification = "Verification";
 const tVerificationCaption = "Enter the verification code sent on your personal information ";
 
 
+// profile screen text
+const tProfile = "Profile";
+const tProfileHeading = "Thành Trí";
+const tProfileSubHeading = "nguyen.thanhtri2112@gmail.com";
+const tEditProfile = "Edit";
+const tFullName = "Full Name";
+const tJoined = "Join";
+const tJoinedAt = "Join at";
+const tDelete = "Delete";
