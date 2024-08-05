@@ -31,7 +31,7 @@ class BoxInputField extends StatelessWidget{
       obscureText: password,
       decoration: InputDecoration(
         hintText: placeholder,
-        contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+        contentPadding: const EdgeInsets.symmetric(vertical: 7, horizontal: 20),
         filled: true,
         fillColor: const Color.fromARGB(255, 255, 255, 255),
         prefixIcon: leading,

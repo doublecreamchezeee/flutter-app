@@ -3,6 +3,8 @@ const tLogin = "Login";
 const tRegister = "Register";
 const tConfirm = "Confirm";
 const tPassword = "Password";
+const tYes = "Yes";
+const tNo = "No";
 // welcome screen text
 const tWelcomeTittle = "Hello";
 const tWelcomeSubTitle = "Welcome to my app";
@@ -41,3 +43,4 @@ const tFullName = "Full Name";
 const tJoined = "Join";
 const tJoinedAt = "Join at";
 const tDelete = "Delete";
+const tConfirmLogout = "Are you sure you want to log out?";

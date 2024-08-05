@@ -1,20 +1,26 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/features/authentication/screens/welcome/welcome_screen.dart';
-import 'package:flutter_application_1/firebase_options.dart';
+import 'package:flutter_application_1/features/core/screens/navigator.dart';
 import 'package:flutter_application_1/repository/auth_repository.dart';
 import 'package:flutter_application_1/utils/theme/theme.dart';
 import 'package:get/get.dart'; 
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
-    .then((value) => Get.put(AuthenticationRepository()));
-  runApp(const MyApp());
+  Get.put(AuthenticationRepository());
+  final authInstance = AuthenticationRepository.instance;
+  final token = await authInstance.getToken();
+  bool? isTokenValid = await authInstance.checkTokenValidation(token!);
+  
+  if (!isTokenValid!){
+    isTokenValid = await authInstance.refreshToken(token);
+  }
+  runApp(MyApp(isTokenValid: isTokenValid!));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool isTokenValid;
+  const MyApp({super.key, required this.isTokenValid});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       // darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.light,
-      home: const WelcomeScreen(),
+      home: isTokenValid ? const MainNavigator() : const WelcomeScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

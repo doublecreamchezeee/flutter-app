@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constants/string.dart';
 import 'package:flutter_application_1/features/authentication/controllers/register_controller.dart';
@@ -15,29 +16,71 @@ class RegisterForm extends StatelessWidget {
       child: Form(
           key: formKey,
           child: Column(children: [
-            BoxInputField(
-              controller: controller.fullName,
-              leading: const Icon(Icons.text_fields),
-              placeholder: "Enter full name",
+            Row( 
+              children: [
+                Expanded(
+                  child: BoxInputField(
+                    controller: controller.firstName,
+                    leading: const Icon(Icons.text_fields),
+                    placeholder: "First name",
+                  ),
+                ),
+                const SizedBox(width: 10,),
+                Expanded(
+                  child: BoxInputField(
+                    controller: controller.lastName,
+                    leading: const Icon(Icons.text_fields),
+                    placeholder: "Last name",
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 12),
             BoxInputField(
-              controller: controller.email,
-              leading: const Icon(Icons.email),
-              placeholder: "Enter email",
-            ),
-            const SizedBox(height: 12),
-            BoxInputField(
-              controller: controller.phone,
-              leading: const Icon(Icons.phone),
-              placeholder: "Enter phone number",
+              controller: controller.username,
+              leading: const Icon(Icons.account_balance),
+              placeholder: "Username",
             ),
             const SizedBox(height: 12),
             BoxInputField(
               controller: controller.password,
               leading: const Icon(Icons.password),
               password: true,
-              placeholder: "Enter password",
+              placeholder: "Password",
+            ),
+            const SizedBox(height: 12),
+            Row(
+              children: [
+                SizedBox(
+                  width: 110,
+                  child: BoxInputField(
+                    controller: controller.city,
+                    leading: const Icon(Icons.location_city),
+                    placeholder: "City",
+                  ),
+                ),
+                const SizedBox(width: 10,),
+                Expanded(
+                  child: BoxInputField(
+                    controller: controller.dateDob,
+                    placeholder: "DD",
+                  ),
+                ),
+                const SizedBox(width: 10,),
+                Expanded(
+                  child: BoxInputField(
+                    controller: controller.monthDob,
+                    placeholder: "MM",
+                  ),
+                ),
+                const SizedBox(width: 10,),
+                Expanded(
+                  child: BoxInputField(
+                    controller: controller.yearDob,
+                    placeholder: "YYYY",
+                  ),
+                ),
+              ]
             ),
             const SizedBox(height: 20),
             SizedBox(
@@ -47,8 +90,15 @@ class RegisterForm extends StatelessWidget {
                   onTap: () {
                     if (formKey.currentState!.validate()) {
                       RegisterController.instance.registerUser(
-                          controller.email.text.trim(),
-                          controller.password.text.trim());
+                        controller.username.text.trim(),
+                        controller.password.text.trim(),
+                        controller.firstName.text.trim(),
+                        controller.lastName.text.trim(),
+                        controller.dateDob.text.trim(),
+                        controller.monthDob.text.trim(),
+                        controller.yearDob.text.trim(),
+                        controller.city.text.trim(),
+                      );
                     }
                   },
                 )),
