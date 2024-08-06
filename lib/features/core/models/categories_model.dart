@@ -2,18 +2,21 @@ import 'dart:convert';
 
 class CategoriesModel{
   final String name;
+  final String id;
 
   CategoriesModel({
-    required this.name
+    required this.name,
+    required this.id
   });
 
   factory CategoriesModel.fromJson(Map<String, dynamic> json) {
-    return CategoriesModel(name: json['name'],);
+    return CategoriesModel(name: json['name'],id: json['id']);
   }
 
   Map<String, dynamic> toJson(){
     return {
       'name': name,
+      'id': id
     };
   }
 }

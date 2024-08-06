@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/features/core/animation/fadeanimation.dart';
 import 'package:flutter_application_1/features/core/api/api.dart';
+import 'package:flutter_application_1/features/core/screens/detail/detail_screen.dart';
 import 'package:flutter_application_1/ui.dart';
 import 'package:flutter_application_1/utils/theme/theme.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -80,7 +81,7 @@ class _HomeBodyState extends State<HomeBody> {
                 return GestureDetector(
                   onTap: () async {
                     // print(categoriesList[index].name);
-                    final response = await ApiService.getProductsWithCategory(categoriesList[index].name);
+                    final response = await ApiService.getProductsWithCategory(categoriesList[index].id);
                     setState(() {
                       selectedIndexOfCategory = index;
                       shoeList = response!;
@@ -160,17 +161,19 @@ class _HomeBodyState extends State<HomeBody> {
             itemCount: shoeList.length,
             itemBuilder: (ctx, index) {
               ShoeModel model = shoeList[index];
+              CategoriesModel cate = categoriesList[selectedIndexOfCategory];
               return GestureDetector(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (ctx) => DetailScreen(
-                  //       model: model,
-                  //       isComeFromMoreSection: false,
-                  //     ),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (ctx) => DetailScreen(
+                        model: model,
+                        isComeFromMoreSection: false,
+                        category: cate
+                      ),
+                    ),
+                  );
                 },
                 child: Container(
                   margin: EdgeInsets.all(10),
@@ -190,7 +193,7 @@ class _HomeBodyState extends State<HomeBody> {
                           delay: 1,
                           child: Row(
                             children: [
-                              BoxText.headingSmall(model.model, color: AppColor.textCardHomeBarColor),
+                              BoxText.headingSmall(categoriesList[selectedIndexOfCategory].name, color: AppColor.textCardHomeBarColor),
                               SizedBox(
                                 width: 100,
                               ),
@@ -294,17 +297,19 @@ class _HomeBodyState extends State<HomeBody> {
           scrollDirection: Axis.horizontal,
           itemBuilder: (ctx, index) {
             ShoeModel model = shoeList[index];
+            CategoriesModel cate = categoriesList[selectedIndexOfCategory];
             return GestureDetector(
               onTap: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (ctx) => DetailScreen(
-                //       model: model,
-                //       isComeFromMoreSection: true,
-                //     ),
-                //   ),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (ctx) => DetailScreen(
+                      model: model,
+                      isComeFromMoreSection: true,
+                      category: cate,
+                    ),
+                  ),
+                );
               },
               child: Container(
                 margin: EdgeInsets.all(10),

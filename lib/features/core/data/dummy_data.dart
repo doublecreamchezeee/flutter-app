@@ -105,4 +105,4 @@ final List featured = [
   'Upcoming',
 ];
 
-final List<double> sizes = [6, 7.5, 8, 9.5];
+final List<double> sizes = [7, 8, 9, 10];
