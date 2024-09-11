@@ -61,7 +61,16 @@ import '../models/shoe_model.dart';
 //   ),
 // ];
 
-List<ShoeModel> itemsOnBag = [];
+final List<ShoeModel> itemsOnBag = [
+  ShoeModel(
+    id: 1,
+    brand: "NIKE",
+    model: "AIR-MAX",
+    price: 130.00,
+    imgAddress: "assets/images/nike1.png",
+    modelColor: const Color(0xffDE0106),
+  ),
+];
 
 // final List<UserStatus> userStatus = [
 //   UserStatus(

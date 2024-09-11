@@ -4,6 +4,7 @@ import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/features/authentication/screens/welcome/welcome_screen.dart';
+import 'package:flutter_application_1/features/core/screens/cart/cart_screen.dart';
 // import 'package:sneakers_app/view/bag/bag_screen.dart';
 import "package:flutter_application_1/features/core/screens/home/home_screen.dart";
 import 'package:flutter_application_1/features/core/screens/profile/profile_screen.dart';
@@ -25,7 +26,7 @@ class _MainNavigatorState extends State<MainNavigator> {
   int _selectedIndex = 0;
   List<Widget> _screen = [
     HomeScreen(),
-    // MyBagScreen(),
+    CartScreen(),
     ProfileScreen(),
   ];
   void _onPageChanged(int index) {
@@ -94,9 +95,9 @@ class _MainNavigatorState extends State<MainNavigator> {
           CustomNavigationBarItem(
             icon: Icon(CupertinoIcons.home),
           ),
-          // CustomNavigationBarItem(
-          //   icon: Icon(CupertinoIcons.shopping_cart),
-          // ),
+          CustomNavigationBarItem(
+            icon: Icon(CupertinoIcons.shopping_cart),
+          ),
           CustomNavigationBarItem(
             icon: Icon(CupertinoIcons.person),
           ),
